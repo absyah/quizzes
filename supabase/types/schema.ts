@@ -11,35 +11,44 @@ export type Database = {
     Tables: {
       participant_answers: {
         Row: {
+          answer_text: string
           created_at: string
           deleted_at: string | null
           id: string
+          is_correct: boolean
           participant_id: string | null
           point: number
           question_id: string | null
           question_option_id: string | null
+          question_text: string
           quiz_id: string | null
           updated_at: string | null
         }
         Insert: {
+          answer_text?: string
           created_at?: string
           deleted_at?: string | null
           id?: string
+          is_correct?: boolean
           participant_id?: string | null
           point?: number
           question_id?: string | null
           question_option_id?: string | null
+          question_text?: string
           quiz_id?: string | null
           updated_at?: string | null
         }
         Update: {
+          answer_text?: string
           created_at?: string
           deleted_at?: string | null
           id?: string
+          is_correct?: boolean
           participant_id?: string | null
           point?: number
           question_id?: string | null
           question_option_id?: string | null
+          question_text?: string
           quiz_id?: string | null
           updated_at?: string | null
         }

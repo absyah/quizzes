@@ -27,7 +27,7 @@ export default function QuizPage() {
     <main className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">{quiz.name}</h1>
       <p className="text-lg mb-6">{quiz.description}</p>
-      <QuizContent questions={questions} />
+      <QuizContent questions={questions} quizId={quiz.id}/>
     </main>
   );
 }
