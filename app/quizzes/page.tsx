@@ -1,6 +1,7 @@
 'use client'
 
 import { useSubscribeList } from '../_hooks/useSubscribeList'
+import QuizList from './_components/QuizList'
 
 export default function Page() {
   const { data: quizzes, isLoading } =
@@ -16,7 +17,8 @@ export default function Page() {
     return <p>Loading...</p>
   }
 
-  return <>
-    <pre>{JSON.stringify(quizzes, null, 2)}</pre>
-  </>
+  return <main className="flex flex-col gap-20 max-w-5xl p-5">
+      <h1 className="text-3xl font-bold mb-6">Available Quizzes</h1>
+      <QuizList quizzes={quizzes} />
+    </main>
 }

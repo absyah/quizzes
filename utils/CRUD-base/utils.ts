@@ -1,4 +1,4 @@
-import { Database, Tables } from '../../app/_types/schema'
+import { Database, Tables } from '../../supabase/types/schema'
 import { Filter, FilterOperator, IdParams, FilterQuery } from './types'
 
 export const queryBuilder = <T extends FilterOperator>(

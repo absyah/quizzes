@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo, useCallback, useRef } from 'react'
-import { Database, Tables } from '../_types/schema'
+import { Database, Tables } from '../../supabase/types/schema'
 import { isReadyIdParams, isSameIds } from '@/utils/CRUD-base/utils'
 import { IdParams } from '@/utils/CRUD-base/types'
 import { useRead } from './useCRUD'

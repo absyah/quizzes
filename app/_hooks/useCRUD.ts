@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { getCRUDBase, getReadBase } from '@/utils/CRUD-base'
-import { Database } from '../_types/schema'
+import { Database } from '../../supabase/types/schema'
 
 export const useCRUD = <T extends keyof Database['public']['Tables']>(
   table: T

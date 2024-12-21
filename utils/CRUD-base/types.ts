@@ -1,6 +1,6 @@
 import { PostgrestFilterBuilder } from '@supabase/postgrest-js'
 import { GenericSchema } from '@supabase/supabase-js/dist/module/lib/types'
-import { Database, Tables } from '../../app/_types/schema'
+import { Database, Tables } from '../../supabase/types/schema'
 
 export type FilterQuery = PostgrestFilterBuilder<
   Database['public'],

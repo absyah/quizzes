@@ -1,5 +1,5 @@
 import { createClient } from '@/utils/supabase/client'
-import { Database, Tables, TablesInsert, TablesUpdate } from '../../app/_types/schema'
+import { Database, Tables, TablesInsert, TablesUpdate } from '../../supabase/types/schema'
 import { PaginationParams, IdParams } from './types'
 import { queryBuilder } from './utils'
 import { PostgrestError } from '@supabase/supabase-js'

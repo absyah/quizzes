@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, useMemo, useRef } from 'react'
-import { Database, Tables } from '../_types/schema'
+import { Database, Tables } from '../../supabase/types/schema'
 import { isSameIds } from '@/utils/CRUD-base/utils'
 import { IdParams, PaginationParams } from '@/utils/CRUD-base/types'
 import { useSubscriptionQuery } from './useSubscriptionQuery'
