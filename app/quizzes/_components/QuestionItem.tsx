@@ -3,6 +3,9 @@ import { Label } from "@/components/ui/label";
 import { Tables } from "@/supabase/types/schema";
 import { useSubscribeList, useSubscribe } from "@/app/_hooks";
 import { CheckCircle, XCircle } from 'lucide-react';
+import { createClient } from "@/utils/supabase/client";
+import { useEffect, useState } from "react";
+import { User } from "@supabase/supabase-js";
 
 interface QuestionItemProps {
   question: Tables<"questions">;
@@ -15,6 +18,18 @@ export function QuestionItem({
   selectedOption,
   onSelectOption,
 }: QuestionItemProps) {
+  const supabase = createClient();
+  const [currentParticipant, setCurrentParticipant] = useState<User | null>(null);
+
+  useEffect(() => {
+    const fetchParticipant = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      setCurrentParticipant(user);
+    };
+
+    fetchParticipant();
+  }, [question]);
+
   const { data: questionOptions, isLoading } = useSubscribeList(
     "question_options",
     {
@@ -24,6 +39,7 @@ export function QuestionItem({
 
   const { data: currentSubmittedAnswer, isLoading: participantAnswerLoading } = useSubscribe('participant_answers', {
     question_id: question.id,
+    participant_id: currentParticipant?.id,
   });
 
   if (isLoading || participantAnswerLoading) {
