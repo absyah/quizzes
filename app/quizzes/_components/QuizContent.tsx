@@ -1,29 +1,29 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { QuestionItem } from './QuestionItem'
-import { Button } from "@/components/ui/button"
-import { Tables } from '@/supabase/types/schema'
+import { useState } from "react";
+import { QuestionItem } from "./QuestionItem";
+import { Button } from "@/components/ui/button";
+import { Tables } from "@/supabase/types/schema";
 
 interface QuizContentProps {
-  questions: Tables<'questions'>[]
+  questions: Tables<"questions">[];
 }
 
 export default function QuizContent({ questions }: QuizContentProps) {
   const [userAnswers, setUserAnswers] = useState<(string | null)[]>(
     new Array(questions.length).fill(null)
-  )
+  );
 
   const handleSelectOption = (questionIndex: number, optionId: string) => {
-    const newUserAnswers = [...userAnswers]
-    newUserAnswers[questionIndex] = optionId
-    setUserAnswers(newUserAnswers)
-  }
+    const newUserAnswers = [...userAnswers];
+    newUserAnswers[questionIndex] = optionId;
+    setUserAnswers(newUserAnswers);
+  };
 
   const handleSubmit = () => {
     // TODO: Implement quiz submission logic
-    console.log('User answers:', userAnswers)
-  }
+    console.log("User answers:", userAnswers);
+  };
 
   return (
     <div className="space-y-8">
@@ -39,6 +39,5 @@ export default function QuizContent({ questions }: QuizContentProps) {
         Submit Quiz
       </Button>
     </div>
-  )
+  );
 }
-

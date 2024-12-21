@@ -1,8 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tables } from "@/supabase/types/schema"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tables } from "@/supabase/types/schema";
 
 interface QuizCardProps {
-  quiz: Tables<'quizzes'>
+  quiz: Tables<"quizzes">;
 }
 
 export function QuizCard({ quiz }: QuizCardProps) {
@@ -16,5 +16,5 @@ export function QuizCard({ quiz }: QuizCardProps) {
         <p className="mt-2 text-sm font-semibold">{10} questions</p>
       </CardContent>
     </Card>
-  )
+  );
 }

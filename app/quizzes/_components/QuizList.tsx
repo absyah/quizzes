@@ -1,9 +1,9 @@
-import Link from 'next/link'
-import { QuizCard } from './QuizCard'
-import { Tables } from '@/supabase/types/schema'
+import Link from "next/link";
+import { QuizCard } from "./QuizCard";
+import { Tables } from "@/supabase/types/schema";
 
 interface QuizListProps {
-  quizzes: Tables<"quizzes">[]
+  quizzes: Tables<"quizzes">[];
 }
 
 export default function QuizList({ quizzes }: QuizListProps) {
@@ -15,6 +15,5 @@ export default function QuizList({ quizzes }: QuizListProps) {
         </Link>
       ))}
     </div>
-  )
+  );
 }
-
