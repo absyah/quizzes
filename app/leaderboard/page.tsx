@@ -8,7 +8,7 @@ export default function Home() {
     "participant_points",
     {
       subscribeTables: ["participants", "participant_answers"],
-      sort: { column: "total_points", ascending: false },
+      sort: { column: "rank", ascending: true },
     }
   );
 
