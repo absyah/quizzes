@@ -212,6 +212,7 @@ export type Database = {
           deleted_at: string | null
           id: string | null
           participant_name: string | null
+          rank: number | null
           total_points: number | null
         }
         Relationships: []

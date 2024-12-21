@@ -25,22 +25,22 @@ export function Leaderboard({ data }: LeaderboardProps) {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data.map((entry, index) => (
+          {data.map((entry) => (
             <TableRow
               key={entry.id}
-              className={index < 3 ? "bg-primary/5" : ""}
+              className={(entry.rank || 1) <= 3 ? "bg-primary/5" : ""}
             >
               <TableCell className="text-center font-medium">
-                {index === 0 && (
+                {entry.rank === 1 && (
                   <Trophy className="inline-block mr-1 text-yellow-500" />
                 )}
-                {index === 1 && (
+                {entry.rank === 2 && (
                   <Medal className="inline-block mr-1 text-gray-400" />
                 )}
-                {index === 2 && (
+                {entry.rank === 3 && (
                   <Medal className="inline-block mr-1 text-amber-600" />
                 )}
-                {index + 1}
+                {entry.rank}
               </TableCell>
               <TableCell className="font-semibold">
                 {entry.participant_name}
