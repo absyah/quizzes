@@ -50,7 +50,7 @@ An open-source backend as a service (BaaS) platform providing database, authenti
     - **Operations**: Holds data such as quiz questions, user information and leaderboard rankings.
 
 
-#### **Data Flow**
+### **Data Flow**
 1. **User**: Initiates the process by interacting with the platform.
 2. **Select Quiz**: The user selects a quiz using its unique ID.
 3. **Questions Shown**: The selected quiz's questions are retrieved and displayed to the user.
