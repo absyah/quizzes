@@ -17,9 +17,13 @@ export default function Page() {
   }
 
   return (
-    <main className="flex flex-col gap-20 max-w-5xl p-5">
-      <h1 className="text-3xl font-bold mb-6">Available Quizzes</h1>
-      <QuizList quizzes={quizzes} />
-    </main>
+    <div className="flex-1 w-full flex flex-col gap-12">
+      <div className="w-full">
+        <div className="flex flex-col gap-2 items-start">
+          <h2 className="font-bold text-2xl mb-4">Available Quizzes</h2>
+          <QuizList quizzes={quizzes} />
+        </div>
+      </div>
+    </div>
   );
 }
