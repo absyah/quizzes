@@ -70,6 +70,8 @@ export const POST = async (request: NextRequest) => {
       };
     }).filter(Boolean) as ParticipantAnswer[];
 
+    console.log("Participant answers:", participantAnswers);
+
     // Bulk insert participant answers into the database
     const { error } = await supabase.from("participant_answers").insert(participantAnswers);
 
