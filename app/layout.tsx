@@ -6,7 +6,6 @@ import { ThemeProvider } from "next-themes";
 import Link from "next/link";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-import PointButton from "@/components/point-button";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
