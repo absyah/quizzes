@@ -19,7 +19,8 @@ export const signUpAction = async (formData: FormData) => {
     );
   }
 
-  const { error } = await supabase.auth.signUp({
+  // Step 1: Sign up the user
+  const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
@@ -28,16 +29,58 @@ export const signUpAction = async (formData: FormData) => {
   });
 
   if (error) {
-    console.error(error.code + " " + error.message);
+    console.error(`${error.code}: ${error.message}`);
     return encodedRedirect("error", "/sign-up", error.message);
-  } else {
+  }
+
+  const user = data.user;
+
+  if (!user) {
     return encodedRedirect(
-      "success",
+      "error",
       "/sign-up",
-      "Thanks for signing up! Please check your email for a verification link.",
+      "Sign-up successful, but user details could not be retrieved."
     );
   }
+
+  // Step 2: Create a participant record
+  const { error: participantError } = await supabase
+    .from("participants")
+    .insert([
+      {
+        id: user.id,
+        name: titleizeEmail(user.email), // Helper function to titleize email
+      },
+    ]);
+
+  if (participantError) {
+    console.error(
+      `Failed to create participant: ${participantError.message}`
+    );
+    return encodedRedirect(
+      "error",
+      "/sign-up",
+      "Sign-up successful, but participant record creation failed."
+    );
+  }
+
+  return encodedRedirect(
+    "success",
+    "/quizzes",
+    "Thanks for signing up! Please login to continue."
+  );
 };
+
+// Helper function to titleize the email
+function titleizeEmail(email?: string): string {
+  if (!email) return "";
+  const username = email.split("@")[0];
+  return username
+    .toLowerCase()
+    .split(".")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
 
 export const signInAction = async (formData: FormData) => {
   const email = formData.get("email") as string;
