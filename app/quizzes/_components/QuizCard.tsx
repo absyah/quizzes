@@ -14,7 +14,7 @@ export function QuizCard({ quiz }: QuizCardProps) {
       <CardContent>
         <p className="text-muted-foreground mb-4">{quiz.description}</p>
         <div className="flex justify-between items-center">
-          <span className="text-sm font-semibold">{10} questions</span>
+          <span className="text-sm font-semibold">{quiz.number_of_questions} questions</span>
         </div>
       </CardContent>
     </Card>
