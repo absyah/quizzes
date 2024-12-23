@@ -10,13 +10,12 @@ Quiz Time is a web platform for real-time quizzes, featuring live score updates,
 URL: 
 
 - [﻿quizzes-delta.vercel.app/quizzes](https://quizzes-delta.vercel.app/quizzes) 
-Login: 
 
+Login: 
 - Create your own account with any email (no need to verify)
+  
 ## Architecture Diagram
 ![diagram-export-12-22-2024-7_40_53-PM.png](https://eraser.imgix.net/workspaces/60NV0wDAcjIAYnHSZXgh/CLWONM2TG2fMg9nRZxcFbTBQo1l1/N6xLpVRvK0kpvSTKrdOed.png?ixlib=js-3.7.0 "diagram-export-12-22-2024-7_40_53-PM.png")
-
-
 
 ### **Component Description**
 #### **User**
